@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  const Login({Key? key}) : super(key: key);
 
   @override
   State<Login> createState() => _LoginState();
@@ -14,13 +14,13 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        margin: EdgeInsets.all(40.0),
+        margin: EdgeInsets.all(30.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 170),
+              padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.1),
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: 10),
                 child: Image.asset(
@@ -31,27 +31,40 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            Container(
-              child: Card(
-                child: ListTile(
-                  leading: SvgPicture.asset('images/google.svg'),
-                  title: Text('Continue with Google'),
-                ),
-              ),
-            ),
-            Container(
-              child: Card(
-                child: ListTile(
-                  leading: SvgPicture.asset('images/apple.svg'),
-                  title: Text('Continue with Apple'),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: Card(
+                  child: ListTile(
+                    leading: SvgPicture.asset('images/google.svg'),
+                    title: Text('Continue with Google'),
+                  ),
                 ),
               ),
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
               },
               child: Container(
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: Card(
+                  child: ListTile(
+                    leading: SvgPicture.asset('images/apple.svg'),
+                    title: Text('Continue with Apple'),
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.7,
                 child: Card(
                   child: ListTile(
                     leading: SvgPicture.asset('images/guest.svg'),
