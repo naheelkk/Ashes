@@ -1,4 +1,4 @@
-import 'package:ashes/bottomNavBar.dart';
+import 'package:ashes/common/bottomNavBar.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 
@@ -46,10 +46,16 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ListView(
+            shrinkWrap: true,
+              children: [
+                Container(
 
+                ),
+              ],
             ),
           ],
         ),
-        bottomNavigationBar: ResponsiveBottomNavBar());
+        bottomNavigationBar: ResponsiveBottomNavBar()
+    );
   }
 }
